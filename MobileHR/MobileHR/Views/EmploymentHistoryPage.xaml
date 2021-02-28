@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileHR.Views.EmploymentHistoryPage"
+              Title="{Binding Title}"
+             xmlns:local="clr-namespace:MobileHR.ViewModels"  
+             xmlns:model="clr-namespace:MobileHR.Models"  
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="sortAZ.png" Command="{Binding SortAscItemsCommand}"/>
+        <ToolbarItem IconImageSource="sortZA.png" Command="{Binding SortDescItemsCommand}" />
+        <ToolbarItem IconImageSource="add.png" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <StackLayout>
+        <SearchBar SearchCommand="{Binding SearchItemsCommand}" CancelButtonColor="#D4EC0B" Text="{Binding SearchText}"></SearchBar>
+        <RefreshView x:DataType="local:EmploymentHistoryViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <ScrollView Grid.Row="1">
+                                <StackLayout Style="{StaticResource StackLayoutList}" x:DataType="model:EmploymentHist">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                NumberOfTapsRequired="2"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:EmploymentHistoryViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                        <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"                                       
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:EmploymentHistoryViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                    <Frame Style="{StaticResource FrameList}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100" />
+                                                <ColumnDefinition Width="5" />
+                                                <ColumnDefinition Width="140" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0" Grid.RowSpan="3" VerticalOptions="Center">
+                                                <StackLayout  >
+                                                    <Image  Source="contract.png"  HeightRequest="42"/>
+                                                </StackLayout>
+                                                <Label Text="Pracownik:" Style="{StaticResource LabelListHeader}"/>
+                                                <Label  Text="{Binding EmployeeName}" 
+                                            LineBreakMode="NoWrap" 
+                                             Style="{StaticResource LabelListContent}" 
+                                              />
+                                                <Label Text="Pracodawca" Style="{StaticResource LabelListHeader}"/>
+                                                <Label Text="{Binding EmployerName}" 
+                                            LineBreakMode="NoWrap"
+                                             Style="{StaticResource LabelListContent}" 
+                                              />
+                                                <Label Text="Adres" Style="{StaticResource LabelListHeader}"/>
+                                                <Label Text="{Binding Adress}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{StaticResource LabelListContent}" 
+                                             />
+                                                <Label Text="Telefon" Style="{StaticResource LabelListHeader}"/>
+                                                <Label Text="{Binding PhoneNumber}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{StaticResource LabelListContent}" 
+                                             />
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="2" Grid.RowSpan="3">
+                                                <Label Text="Data od:" Style="{StaticResource LabelListHeader}"/>
+                                                <Label Text="{Binding DateFrom}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{StaticResource LabelListContent}" 
+                                            />
+                                                <Label Text="Data do:" Style="{StaticResource LabelListHeader}"/>
+                                                <Label Text="{Binding DateTo}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{StaticResource LabelListContent}" 
+                                            />
+                                                <Label Text="Typ umowy:" Style="{StaticResource LabelListHeader}"/>
+                                                <Label Text="{Binding TypeContractName}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{StaticResource LabelListContent}" 
+                                             />
+                                                <Label Text="Typ wypowiedznia:" Style="{StaticResource LabelListHeader}"/>
+                                                <Label Text="{Binding TerminationWayName}" 
+                                            LineBreakMode="NoWrap"
+                                             Style="{StaticResource LabelListContent}"                                               
+                                             />
+                                                <Label Text="Uwagi:" Style="{StaticResource LabelListHeader}"/>
+                                                <Label Text="{Binding Comments}" 
+                                            LineBreakMode="NoWrap"
+                                             Style="{StaticResource LabelListContent}" />
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </ScrollView>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
+</ContentPage>

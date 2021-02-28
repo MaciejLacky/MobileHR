@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileHR.Views.NewContractPage"             
+              
+             Title="Nowa umowa">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+
+            <StackLayout Spacing="3" Padding="15">
+                <Picker Title="Wybierz Pracownika" ItemsSource="{Binding Employees}" ItemDisplayBinding="{Binding FirstName}" SelectedItem="{Binding SelectedEmployee}" FontSize="Medium" Margin="0" />
+                <Picker Title="Typ umowy" ItemsSource="{Binding TypeContracts}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedTypeContract}" FontSize="Medium" Margin="0" />
+                <Picker Title="Stanowisko" ItemsSource="{Binding Positions}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPosition}" FontSize="Medium" Margin="0" />
+                <Label Text="Wynagrodzenie" FontSize="Medium" />
+                <Entry Text="{Binding Salary, Mode=TwoWay}" FontSize="Medium" />
+                <DatePicker Date="{Binding DateFrom, Mode=TwoWay}" FontSize="Medium" />
+                <DatePicker Date="{Binding DateTo, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Dział" ItemsSource="{Binding Departments}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedDepartment}" FontSize="Medium" Margin="0" />
+                <Picker Title="Stawka" ItemsSource="{Binding TypeRates}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedTypeRate}" FontSize="Medium" Margin="0" />
+                <Picker Title="Sposób wypowiedzenia" ItemsSource="{Binding TerminationWays}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedTerminationWay}" FontSize="Medium" Margin="0" />           
+                <Picker Title="Waluta" ItemsSource="{Binding Currencies}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedCurrency}" FontSize="Medium" Margin="0" />
+                <StackLayout Orientation="Horizontal">
+
+                    <Button Text="Anuluj" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Zapisz" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

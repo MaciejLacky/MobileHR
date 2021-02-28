@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileHR.Views.NewEmploymentHistoryPage"
+              Title="Historia zatrudnienia">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+
+
+            <StackLayout Spacing="3" Padding="15">
+                <Picker Title="Wybierz pracownika" ItemsSource="{Binding Employees}" ItemDisplayBinding="{Binding FirstName}" SelectedItem="{Binding SelectedEmployee}" FontSize="Medium" Margin="0" />
+                <Label Text="Nazwa pracodawcy:" FontSize="Medium" />
+                <Entry Text="{Binding EmployerName, Mode=TwoWay}" FontSize="Medium" />
+
+                <Label Text="Adres pracodawcy:" FontSize="Medium" />
+                <Entry Text="{Binding Adress, Mode=TwoWay}"  FontSize="Medium" Margin="0" />
+
+                <Label Text="Telefon:" FontSize="Medium" />
+                <Entry Text="{Binding PhoneNumber, Mode=TwoWay}"  FontSize="Medium" Margin="0" />
+
+                
+                <Picker Title="Typ umowy" ItemsSource="{Binding TypeContracts}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedTypeContract}" FontSize="Medium" Margin="0" />
+                <Picker Title="Sposób wypowiedzenia" ItemsSource="{Binding TerminationWays}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedTerminationWay}" FontSize="Medium" Margin="0" />
+                <Label Text="Data od:" FontSize="Medium" />
+                <DatePicker Date="{Binding DateFrom, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Data do:" FontSize="Medium" />
+                <DatePicker Date="{Binding DateTo, Mode=TwoWay}" FontSize="Medium" />
+
+                <Label Text="Uwagi" FontSize="Medium" />
+                <Entry Text="{Binding Comments, Mode=TwoWay}"  FontSize="Medium" Margin="0" />
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button Text="Anuluj" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Zapisz" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

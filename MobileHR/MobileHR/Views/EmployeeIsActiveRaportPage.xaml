@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileHR.Views.EmployeeIsActiveRaportPage">
+    <ContentPage.Content>
+        <StackLayout >
+            <Frame Style="{StaticResource FrameList}">
+                <StackLayout  Margin="4">
+                    <Label Text="Liczba zatrudnionych pracowników" HorizontalOptions="Center" FontSize="Medium"/>
+                    <Label Text="Data od" HorizontalOptions="Start"/>
+                    <DatePicker Date="{Binding DateFrom, Mode=TwoWay}" FontSize="Medium" />
+                    <Label Text="Data do" HorizontalOptions="Start"/>
+                    <DatePicker Date="{Binding DateTo, Mode=TwoWay}" FontSize="Medium" />
+                    <Button Command="{Binding EmployeeIsActive}" Text="Pokaż" HorizontalOptions="Center"/>
+                    <Label Text="Ilość pracowników " HorizontalOptions="Center"/>
+                    <Label Text="{Binding NumberEmployee, Mode=TwoWay}" HorizontalOptions="Center" FontSize="Medium"/>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3a229f655f364fc297771b42e89c28f2" Name="Diagram1">
+        <EntityTypeShape EntityType="HumanResourcesDBModel.Contracts" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.Currencies" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.Departments" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.Employees" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.Genders" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.Permissions" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.Positions" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.Statuses" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.TerminationWays" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.TypeContracts" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.TypeRates" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.Users" Width="1.5" PointX="12" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Contracts__Curre__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Contracts__Depar__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Contracts__Emplo__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Contracts__Posit__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Contracts__Termi__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Contracts__TypeC__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Contracts__TypeR__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Departmen__Manag__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Departmen__Paren__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Employees__Gende__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Employees__Statu__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK__Users__Permissio__4BAC3F29" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.EmploymentHistory" Width="1.5" PointX="7.5" PointY="11.125" />
+        <EntityTypeShape EntityType="HumanResourcesDBModel.EmploymentHistoryEducation" Width="1.5" PointX="5.25" PointY="20" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK_EmploymentHistory_Employees" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK_EmploymentHistoryEducation_Employees" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK_EmploymentHistory_TerminationWays" />
+        <AssociationConnector Association="HumanResourcesDBModel.FK_EmploymentHistory_TypeContracts" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

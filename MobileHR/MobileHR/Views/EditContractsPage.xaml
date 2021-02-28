@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileHR.Views.EditContractsPage"
+     Title="Edytuj umowe">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+
+            <StackLayout Spacing="3" Padding="15">
+                <Label Text="{Binding EmployeeValue, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Zmień Pracownika" ItemsSource="{Binding Employees, Mode=TwoWay}" ItemDisplayBinding="{Binding FirstName, Mode=TwoWay}" SelectedItem="{Binding SelectedEmployee, Mode=TwoWay}" FontSize="Medium" Margin="0" />
+                <Label Text="{Binding TypeContractValue, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Zmień umowe" ItemsSource="{Binding TypeContracts}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedTypeContract}" FontSize="Medium" Margin="0" />
+                <Label Text="{Binding PositionValue, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Zmień stanowisko" ItemsSource="{Binding Positions}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPosition}" FontSize="Medium" Margin="0" />
+                <Label Text="Wynagrodzenie" FontSize="Medium" />
+                <Entry Text="{Binding Salary, Mode=TwoWay}" FontSize="Medium" />
+                <DatePicker Date="{Binding DateFrom, Mode=TwoWay}" FontSize="Medium" />
+                <DatePicker Date="{Binding DateTo, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="{Binding DepartmentValue, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Zmień dział" ItemsSource="{Binding Departments}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedDepartment}" FontSize="Medium" Margin="0" />
+                <Label Text="{Binding TypeRateValue, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Zmień stawke" ItemsSource="{Binding TypeRates}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedTypeRate}" FontSize="Medium" Margin="0" />
+                <Label Text="{Binding TerminationWayValue, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Zmień sposób wypowiedzenia" ItemsSource="{Binding TerminationWays}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedTerminationWay}" FontSize="Medium" Margin="0" />
+                <Label Text="{Binding CurrencyValue, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Zmień walute" ItemsSource="{Binding Currencies}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedCurrency}" FontSize="Medium" Margin="0" />
+                <StackLayout Orientation="Horizontal">
+
+                    <Button Text="Anuluj" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Zapisz" Command="{Binding UpdateCommand}" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

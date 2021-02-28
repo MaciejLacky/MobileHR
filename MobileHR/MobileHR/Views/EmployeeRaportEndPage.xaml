@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileHR.Views.EmployeeRaportEndPage">
+    <ContentPage.Content>
+        <StackLayout >
+            <Frame Style="{StaticResource FrameList}">
+                <StackLayout  Margin="4">
+                    <Label Text="Liczba pracowników wg działu" HorizontalOptions="Center" FontSize="Medium"/>
+                    <Picker Title="Wybierz Dział" ItemsSource="{Binding Departments}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedDepartment}" FontSize="Medium" Margin="0" />
+                    <Button Command="{Binding EmployeeEndContract}" Text="Pokaż" HorizontalOptions="Center"/>
+                    <Label Text="Ilość pracowników " HorizontalOptions="Center"/>
+                    <Label Text="{Binding NumberEmployee, Mode=TwoWay}" HorizontalOptions="Center" FontSize="Medium"/>
+                </StackLayout>
+            </Frame>
+           
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

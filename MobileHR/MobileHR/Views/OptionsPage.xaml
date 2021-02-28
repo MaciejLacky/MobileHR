@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileHR.Views.OptionsPage"
+             xmlns:vm="clr-namespace:MobileHR.ViewModels"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:OptionViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView >
+
+            <StackLayout Orientation="Vertical" Padding="10,10,10,10"   >
+
+                <Button  Text="Waluty"                        
+                        Command="{Binding CurrenciesCommand}"
+                        Style="{StaticResource ButtonOption}" />
+                <Button  Text="Działy"
+                        Command="{Binding DepartmentsCommand}"
+                        Style="{StaticResource ButtonOption}" />
+                <Button  Text="Płeć"
+                        Command="{Binding GendersCommand}"                        
+                        Style="{StaticResource ButtonOption}" />
+                <Button  Text="Stanowiska"
+                        Command="{Binding PositionsCommand}"                       
+                        Style="{StaticResource ButtonOption}"  />
+                <Button  Text="Statusy zatrudnionych"
+                        Command="{Binding StatusesCommand}"                        
+                        Style="{StaticResource ButtonOption}"  />
+                <Button  Text="Sposoby wypowiedzenia"
+                        Command="{Binding TerminationWaysCommand}"                        
+                        Style="{StaticResource ButtonOption}" />
+                <Button  Text="Typy uwów"
+                        Command="{Binding TypeContractsCommand}"                       
+                        Style="{StaticResource ButtonOption}"  />
+                <Button  Text="Stawki umów"
+                        Command="{Binding TypeRatesCommand}"                        
+                        Style="{StaticResource ButtonOption}"  />
+                
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

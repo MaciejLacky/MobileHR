@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileHR.Views.EditEmployeePage">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+
+
+            <StackLayout Spacing="3" Padding="15">
+                <Label Text="Imie" FontSize="Medium" />
+                <Entry Text="{Binding FirstName, Mode=TwoWay}" FontSize="Medium" />
+
+                <Label Text="Nazwisko" FontSize="Medium" />
+                <Entry Text="{Binding LastName, Mode=TwoWay}"  FontSize="Medium" Margin="0" />
+
+                <Label Text="Kod" FontSize="Medium" />
+                <Entry Text="{Binding Code, Mode=TwoWay}"  FontSize="Medium" Margin="0" />
+                <Label Text="{Binding StatusValue, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Zmień Status" ItemsSource="{Binding Statuses, Mode=TwoWay}" ItemDisplayBinding="{Binding Value,  Mode=TwoWay}" SelectedItem="{Binding SelectedStatus, Mode=TwoWay}" FontSize="Medium" Margin="0" />
+                <Label Text="{Binding GenderValue, Mode=TwoWay}" FontSize="Medium" />
+                <Picker Title="Zmień Płeć" ItemsSource="{Binding Genders, Mode=TwoWay}" ItemDisplayBinding="{Binding Value, Mode=TwoWay}" SelectedItem="{Binding SelectedGender, Mode=TwoWay}" FontSize="Medium" Margin="0" />
+
+                <Label Text="Data urodzenia" FontSize="Medium" />
+                <DatePicker Date="{Binding DateBirth, Mode=TwoWay}" FontSize="Medium" />
+
+                <Label Text="Numer telefonu" FontSize="Medium" />
+                <Entry Text="{Binding PhoneNumber, Mode=TwoWay}"  FontSize="Medium" Margin="0" />
+
+                <Label Text="Pesel" FontSize="Medium" />
+                <Entry Text="{Binding Pesel, Mode=TwoWay}"  FontSize="Medium" Margin="0" />
+
+                <Label Text="Adres Email" FontSize="Medium" />
+                <Entry Text="{Binding AdresEmail, Mode=TwoWay}"  FontSize="Medium" Margin="0" />
+
+
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button Text="Anuluj" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Zapisz" Command="{Binding UpdateCommand}" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
